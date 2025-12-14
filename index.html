@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Cart</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap-grid.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="confirmpg/confirm.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Nav Bar Section -->
+  <div class="navBar">
+
+    <!-- Toggle Button (md and below only) -->
+    <button class="nav-toggle d-lg-none" id="navToggle">
+      ☰
+    </button>
+
+    <div class="row align-items-center justify-content-between">
+
+      <!-- LOGO -->
+      <div class="col-6 col-lg-3 Logo">ABD_Café</div>
+
+      <!-- NAV LINKS (hidden on md and below) -->
+      <div class="col-12 col-lg-8 d-none d-lg-block mt-3 mt-lg-0" id="navLinks">
+        <div class="row justify-content-center justify-content-lg-between align-items-center text-center">
+
+          <div class="col-3">
+            <a href="contactpg/contact.html" class="nav-a">Contact</a>
+          </div>
+
+          <div class="col-3">
+            <a href="blogpg/blog.html" class="nav-a">Blogs</a>
+          </div>
+
+          <div class="col-4">
+            <select id="dessert" name="dessert">
+              <option value="">Menue</option>
+              <option value="#Eat-sec" >Dessert</option>
+              <option value="#Drink-sec">Drinks</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- JOIN BUTTON (hidden on md and below) -->
+      <div class="col-lg-1 px-0 d-none d-lg-block join" id="joinLink">
+        <a href="#" class="nav-a">Join</a>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- NavBar End      -->
+  </div>
+  <hr>
+  <div class="container-fluid py-4">
+    <div class="old-cnfrm">
+
+      <div class="row g-4 justify-content-center align-items-center">
+        <div class="col-12">
+          <div class="row justify-content-center align-items-center px-20">
+            <!-- CART -->
+            <div class="col-9 justify-content-center align-items-center mycart">
+              <h3>Your Cart</h3>
+              <p>Your added Items will appear here.</p>
+              <ul id="cart">
+              </ul>
+              <h4>Total: $<span class="total" id="total">0.00</span></h4>
+              <button id="confirm" disabled>Confirm Your Order</button>
+              <button id="new" class="cancle-btn btn w-100 mt-4">
+                Cancle Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- confirmation Window  -->
+
+    <div class="overlay d-none" id="confirmOverlay">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-11 col-md-8 col-lg-5">
+
+            <div class="confirmation-box p-4">
+
+              <div class="text-center mb-3">
+                <span class="check-icon">✔</span>
+              </div>
+
+              <h3 class="fw-bold text-center">Order Confirmed</h3>
+              <p class="text-center text-muted">Hope You Enjoy The Meal :</p>
+              <div class="order-items mt-4">
+                <div id="modal" class="modal ">
+                  <div class="box">
+                    <ul id="modal-list">
+                      <p>Model List</p>
+                    </ul>
+                    <h4>Total: $<span class="conTtotal" id="conTotal">0.00</span></h4>
+                  </div>
+
+                </div>
+              </div>
+
+              <button id="new" class="btn w-100 mt-4">
+                Start New Order
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT LIST -->
+    <h2 id="menue" class="menue_dir">Menue</h2>
+    <div class="col-12 outer-c">
+      <div class="row g-4 justify-content-center align-items-center">
+        <div class="col-12">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 inner-c scroll">
+
+              <!-- Eatables Section (duplicate and change data as needed) -->
+              <h4 id="Eat-sec" class="menue_dir">Dessert</h4>
+              <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Cake" data-price="5.99">
+                    <img src="img/Red Velvet Cake.PNG" width="100%">
+                    <h5>Red Velvet Cake</h5>
+                    <p id="cost">$5.99</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i> Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Classic teramisu" data-price="4.49">
+                    <img src="img/classic teramisu.PNG">
+                    <h5>Classic Teramisu</h5>
+                    <p id="cost">$4.49</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Vanila Beans" data-price="3.25">
+                    <img src="img/vanila beans.PNG">
+                    <h5>Vanilla Beans</h5>
+                    <p id="cost">$3.25</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Lemon Meringu" data-price="3.25">
+                    <img src="img/Lemon meringu Pie.PNG">
+                    <h5>Lemon Meringu Pie</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Pistachio Baklava" data-price="3.25">
+                    <img src="img/pistachio Baklava.PNG">
+                    <h5>Pistachio Baklava</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="waffle" data-price="3.25">
+                    <img src="img/waffle with baries.PNG">
+                    <h5>Waffle With Baries</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Salted Caramel Brownie" data-price="3.25">
+                    <img src="img/Salted Caramel Brownie.PNG">
+                    <h5>Salted Caramel Brownie</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Vanilla Pana Cotta" data-price="3.25">
+                    <img src="img/Vanilla Pana Cotta.PNG">
+                    <h5>Vanilla Pana Cotta</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Macaron Mix" data-price="3.25">
+                    <img src="img/Macaron Mix.PNG">
+                    <h5>Macaron Mix</h5>
+                    <p id="cost">$5.00</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Drinks Sec  -->
+              <h4 id="Drink-sec" class="menue_dir">Drinks</h4>
+              <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="cappuccino" data-price="5.99">
+                    <img src="img/cappuccino.jpg" width="100%">
+                    <h5>Cappuccino</h5>
+                    <p id="cost">$5.99</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i> Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="Mocha" data-price="4.49">
+                    <img src="img/Mocha.jpg">
+                    <h5>Classic Mocha</h5>
+                    <p id="cost">$4.49</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="product" data-name="hot chocolate" data-price="3.25">
+                    <img src="img/hot chocolate.jpg">
+                    <h5>Hot Bhocolate</h5>
+                    <p id="cost">$3.25</p>
+                    <button class="add"><i class="bi bi-cart-plus"></i>Add To Cart</button>
+
+                    <div class="qty d-none">
+                      <button class="minus">−</button>
+                      <span class="num">1</span>
+                      <button class="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- About Section -->
+        <div class="col-md-3 col-12">
+          <h5 class="footer-title">MyWebsite</h5>
+          <p class="footer-text">
+            Your go-to platform for amazing content and services. Explore, connect, and stay updated.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-3 col-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-3 col-6">
+          <h5 class="footer-title">Contact</h5>
+          <ul class="list-unstyled footer-links">
+            <li>Email: info@mywebsite.com</li>
+            <li>Phone: +1 (123) 456-7890</li>
+            <li>Address: 123 Main Street, City, Country</li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-md-3 col-12">
+          <h5 class="footer-title">Newsletter</h5>
+          <p class="footer-text">Use the Join Link at the top and join our community to get our latest updates.</p>
+          <!-- <form class="footer-form d-flex flex-column flex-sm-row gap-2">
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-gradient">Subscribe</button>
+                </form> -->
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div
+        class="footer-bottom mt-5 pt-3 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="mb-2 mb-sm-0">&copy; 2025 MyWebsite. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="#" class="social-link">FB</a>
+          <a href="#" class="social-link">TW</a>
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">LN</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script src="confirmpg/confirm.js"></script>
+</body>
+
+</html>

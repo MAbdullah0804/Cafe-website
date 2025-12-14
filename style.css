@@ -1,0 +1,551 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f2f2f7, #e0d6f8);
+    min-height: 100vh;
+    color: #333;
+    transition: background 0.5s ease;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* ---------------- Animated Gradient ---------------- */
+@keyframes gradientBG {
+    0% { background: linear-gradient(135deg, #f2f2f7, #e0d6f8); }
+    50% { background: linear-gradient(135deg, #c3f0f2, #d8c2ff); }
+    100% { background: linear-gradient(135deg, #f2f2f7, #e0d6f8); }
+}
+
+/* NAVBAR CONTAINER */
+.navBar {
+    position: relative;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    z-index: 10;
+
+    /* Animated gradient background */
+    background: linear-gradient(270deg, #ff6a6a, #6a11cb, #2575fc, #ff6a6a);
+    background-size: 800% 800%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* LOGO */
+.navBar .Logo {
+    font-size: 2.5rem;
+    font-family: 'Impact', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+.navBar .Logo:hover {
+    transform: scale(1.1);
+    text-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* NAV LINKS */
+.navBar a.nav-a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 0.3rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Hover color */
+.navBar a.nav-a:hover {
+    color: #ffeb3b;
+    transform: translateY(-2px);
+}
+
+/* JOIN BUTTON */
+.navBar .join a.nav-a {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+.navBar .join a.nav-a:hover {
+    background: rgba(255,255,255,0.4);
+    color: #6a11cb;
+    transform: translateY(-2px);
+}
+
+/* TOGGLE BUTTON (md & below only) */
+.nav-toggle {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    font-size: 2rem;
+    padding: 4px 12px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/* Show toggle on md & smaller */
+@media (max-width: 991px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Mobile nav spacing */
+    #navLinks {
+        margin-top: 20px;
+    }
+
+    .join {
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+
+
+/* Gradient animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------------- Logo ---------------- */
+.navBar .Logo {
+    font-size: 2.5rem;
+    font-family: 'Impact', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+.navBar .Logo:hover {
+    transform: scale(1.1);
+    text-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* ---------------- Links ---------------- */
+.navBar a#nav-a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 0.3rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Hover underline effect */
+.navBar a#nav-a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    /* left: 0;
+    background: #ffeb3b;
+    transition: width 0.3s ease; */
+}
+.navBar a#nav-a:hover::after {
+    width: 100%;
+}
+
+/* Hover color change */
+/* .navBar a#nav-a:hover {
+    color: #ffeb3b;
+    transform: translateY(-2px);
+} */
+
+/* ---------------- Join Button ---------------- */
+.navBar .join a#nav-a {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+.navBar .join a#nav-a:hover {
+    background: rgba(255,255,255,0.4);
+    color: #6a11cb;
+    transform: translateY(-2px);
+}
+
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 992px) {
+    .navBar .row {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .navBar .col-3, .navBar .col-8, .navBar .col-1 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    .navBar .col-8 .row {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .navBar .join { margin-top: 0.5rem; }
+}
+/* ------------------Dropdown--------- */
+
+#dessert {
+  width: 100%;
+  padding: 3px 5px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  option{
+     background: #98a2b2;
+  }
+}
+
+#dessert:hover {
+  border-color: #7fb8f1;
+  box-shadow: 0 4px 10px rgba(53,122,189,0.3);
+}
+
+#dessert:focus {
+  border-color: #ced6df;
+  box-shadow: 0 0 12px rgba(53,122,189,0.4);
+  /* outline: none; */
+}
+
+/* -----------end drop down-------- */
+.menue_dir{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #5c4d4d;
+    padding: 10px;
+}
+
+
+/* ---------------- Main Container ---------------- */
+.outer-c {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.inner-c {
+    background: linear-gradient(145deg, #ffffff, #f0f0ff);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inner-c:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* ---------------- Product Cards ---------------- */
+.product {
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #fafafa, #f5f5ff);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.product h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.8rem 1rem 0.2rem 1rem;
+}
+
+.product p {
+    font-size: 1.1rem;
+    margin: 0 1rem 1rem 1rem;
+    color: #555;
+}
+
+/* ---------------- Buttons & Quantity ---------------- */
+button {
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.add {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    color: #fff;
+    font-weight: 600;
+}
+
+button.add:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.qty, .num {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ---------------- Cart Box ---------------- */
+.mycart {
+    background: linear-gradient(145deg, #fff, #f9f9ff);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    text-align: center;
+    position: sticky;
+    top: 20px;
+    max-width: 300px;
+    margin: 1rem auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mycart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.mycart h3 {
+    margin-bottom: 0.5rem;
+}
+
+#confirm, #new, .cancle-btn {
+    display: block;
+    width: 80%;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #816060;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #6a11cb33, #2575fc33);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#confirm:hover, #new:hover,.cancle-btn:hover {
+    background: linear-gradient(135deg, #2575fc55, #6a11cb55);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 1024px) {
+    .outer-c {
+        padding: 0 1rem;
+    }
+
+    .inner-c, .mycart {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .inner-c, .product, .mycart {
+        margin: 1rem 0;
+    }
+
+    .navBar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .navBar .Logo {
+        font-size: 1.8rem;
+    }
+
+    .product h5 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .qty, .num {
+        font-size: 1rem;
+    }
+}
+
+/* Footer Base */
+
+.footer {
+    background-color: #111;
+    color: #ddd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+/* Gradient Titles */
+.footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #ff416c, #1fa2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Footer Text */
+.footer-text {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Footer Links */
+.footer-links li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.footer-links li a {
+    color: #ddd;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #1fa2ff;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #1fa2ff;
+}
+
+.footer-links li a:hover::after {
+    width: 100%;
+}
+
+/* Newsletter Form */
+.footer-form .form-control {
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.footer-form .btn-gradient {
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #ff416c, #1fa2ff);
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.footer-form .btn-gradient:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff416c, 0 0 25px #1fa2ff;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    font-size: 14px;
+    color: #888;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(45deg, #ff416c, #1fa2ff);
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px #ff416c, 0 0 20px #1fa2ff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .footer-form {
+        flex-direction: column;
+    }
+}
+.scroll {
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px; /* prevents content cutting */
+}
+.scroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: #c99a78;
+    border-radius: 20px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
