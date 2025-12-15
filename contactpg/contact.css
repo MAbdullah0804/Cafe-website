@@ -1,0 +1,108 @@
+/* ---------------- Hero Section ---------------- */
+.bg-primary {
+  background: linear-gradient(135deg, rgba(155, 158, 245, 0.85), rgba(101, 116, 239, 0.85)) !important;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: rotateBg 15s linear infinite;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: #f1f1f1;
+  max-width: 700px;
+  margin: 10px auto 0;
+}
+
+/* ---------------- Cards: Info & Form ---------------- */
+.info, .bg-white {
+  position: relative;
+  background: linear-gradient(145deg, #fdfcfe, #f3f3ff);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info::before, .bg-white::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(37,117,252,0.1), rgba(106,17,203,0.1));
+  animation: pulseBg 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulseBg {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.2) rotate(360deg); }
+}
+
+.info:hover, .bg-white:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+/* Card content above animation */
+.info *, .bg-white * { position: relative; z-index: 1; }
+
+/* ---------------- Input Focus ---------------- */
+.form-control:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 10px rgba(101,17,203,0.3);
+  outline: none;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn-primary {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  transform: translateY(-3px);
+}
+
+/* ---------------- Text & Links ---------------- */
+.text-primary {
+  color: #2575fc !important;
+  transition: color 0.3s;
+}
+
+.text-primary:hover {
+  color: #6a11cb !important;
+  text-decoration: none;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .info, .bg-white { padding: 1.5rem; }
+  .bg-primary { padding: 60px 15px; }
+}
