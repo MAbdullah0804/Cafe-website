@@ -1,0 +1,132 @@
+/* Full-screen overlay with particle animation */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+
+/* Optional: Animated particles background */
+.overlay::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveParticles 20s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes moveParticles {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(50px,50px); }
+}
+
+/* Confirmation popup */
+.confirmation-box {
+    position: relative;
+    z-index: 2; /* above particles */
+    width: 380px;
+    max-width: 95%;
+    padding: 35px 30px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b, #1fa2ff, #12d8fa);
+    background-size: 800% 800%;
+    animation: gradientMove 12s ease infinite, popup 0.5s ease-out;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 60px rgba(255,255,255,0.1) inset;
+    color: #fff;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Popup entrance */
+@keyframes popup {
+    from { opacity: 0; transform: scale(0.8) rotateX(-10deg); }
+    to { opacity: 1; transform: scale(1) rotateX(0deg); }
+}
+
+/* Check icon with glowing effect */
+.check-icon {
+    font-size: 55px;
+    color: #00ffcc;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    animation: bounceGlow 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes bounceGlow {
+    0% { transform: translateY(0) scale(1); text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+    100% { transform: translateY(-12px) scale(1.05); text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+}
+
+/* Order items with neon underline */
+.order-item {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+    position: relative;
+}
+
+.order-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #00ffcc;
+    transition: width 0.4s ease;
+}
+
+.order-item:hover::after {
+    width: 100%;
+}
+
+/* Order total with gradient text */
+.order-total {
+    padding-top: 18px;
+    font-weight: 800;
+    font-size: 20px;
+    background: linear-gradient(90deg, #ff416c, #1fa2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Button with neon glow */
+.confirmation-box button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #00ffcc;
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc inset;
+}
+
+.confirmation-box button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00ffcc, 0 0 40px #00ffcc inset;
+}
