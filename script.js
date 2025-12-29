@@ -1,36 +1,36 @@
 let total = 0;
 
-const cart       = document.getElementById("cart");
-const totalEl    = document.getElementById("total");
+const cart = document.getElementById("cart");
+const totalEl = document.getElementById("total");
 const confirmBtn = document.getElementById("confirm");
-const modal      = document.getElementById("modal");
-const modalList  = document.getElementById("modal-list");
-const conTotal   = document.getElementById("conTotal");
-const newBtn     = document.getElementById("new");
+const modal = document.getElementById("modal");
+const modalList = document.getElementById("modal-list");
+const conTotal = document.getElementById("conTotal");
+const newBtn = document.getElementById("new");
 const toggleBtn = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 const joinLink = document.getElementById("joinLink");
 const select = document.getElementById('dessert');
-  // -----------The NavToggler-----------
+// -----------The NavToggler-----------
 toggleBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("d-none");
-    joinLink.classList.toggle("d-none");
+  navLinks.classList.toggle("d-none");
+  joinLink.classList.toggle("d-none");
 });
-  // -----------------Dropdown--------------
-select.addEventListener('change', function() {
-    const target = this.value;
-    if (target) {
-      // Scroll to the section
-      window.location.href = target;
-    }
-  });
+// -----------------Dropdown--------------
+select.addEventListener('change', function () {
+  const target = this.value;
+  if (target) {
+    // Scroll to the section
+    window.location.href = target;
+  }
+});
 
 // ---------------- MAIN CLICK HANDLER ----------------
 
 document.addEventListener("click", e => {
 
   const p = e.target.closest(".product");
-  
+
   // If click is outside a product, ignore it
   if (!p && !e.target.id) return;
 
@@ -84,7 +84,7 @@ document.addEventListener("click", e => {
     // Otherwise decrease normally
     const newQty = current - 1;
     num.textContent = newQty;
-    
+
     updateItem(p, newQty);
     updateTotal(-p.dataset.price);
 

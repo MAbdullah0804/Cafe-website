@@ -261,12 +261,11 @@ body {
     border-radius: 20px;
      background: linear-gradient(135deg, rgba(37, 117, 252, 0.7), rgba(106, 17, 203,0.7));
     backdrop-filter: blur(5px);
-    margin: 1.5rem;
+    margin: 1rem;
 }
-.back-to-cart{
+#back-to-cart{
     text-decoration: none;
-    color: #fff;
-    
+    color: #fff;    
     font-size: 1rem;
 }
 .inner-c {
